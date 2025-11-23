@@ -1,4 +1,4 @@
-package com.core.rivision.encapsulation;
+package com.core.rivision.exception;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
