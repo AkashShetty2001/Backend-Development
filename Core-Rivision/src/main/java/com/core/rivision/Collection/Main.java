@@ -33,6 +33,26 @@ public class Main {
         //without downcasting how am i calling addFirst method of linkedlist
         //because reference is of list type and object is of linkedlist type.. at runtime jvm will check for object type and call the method accordingly
 
+
+        //traversal
+        //using forEach loop
+        for(String name : names){
+            System.out.println(name);
+        }
+
+        //using iterator
+        Iterator<String> iterator = names.iterator();
+        while(iterator.hasNext()){
+            System.out.println(iterator.next());
+        }
+
+        //using forEach method with lambda expression
+        names.forEach(name -> System.out.println(name));
+        //this is an java 8 feature, accepts  an consumer functional interface implementation
+
+        //.get() method to access elements by index
+        System.out.println("First name: " + names.get(0));
+        //applicable only for list as its ordered collection
     }
 
     public static void setExample(){
@@ -63,9 +83,18 @@ public class Main {
         //we can specify custom sorting logic using comparator interface
         //internally tree set uses red black tree data structure
     }
+
+    public static void mapExample(){
+        Map<String,Integer> hashMap = new HashMap<>();
+        hashMap.put("One",1);
+        hashMap.put("Two",2);
+        hashMap.put("Three",3);
+        System.out.println("HashMap: " + hashMap);
+    }
     public static void main(String[] args) {
         listExample();
         setExample();
+        mapExample();
     }
 
 }
