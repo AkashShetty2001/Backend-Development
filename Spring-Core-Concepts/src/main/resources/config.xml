@@ -11,6 +11,21 @@
 
     </bean>
 
-    <!-- more bean definitions for services go here -->
+    <bean id="engine" class="com.core.rivision.concepts.Engine">
+<!--     engine objects requires an object of fuel class, so we are injecting that dependency here-->
+        <constructor-arg ref="fuel"/> <!-- I can use constructor-arg or property,
+         and since it is a reference to another bean we use ref attribute,
+         and we should pass id or name of the bean we want to inject-->
+
+    </bean>
+
+    <bean id="car" class="com.core.rivision.concepts.Car" autowire="byType">
+<!--        car is dependent on engine, so pass it with property-->
+<!--        <property name="engine" ref="engine"/>-->
+        <!--here name is the property name in car class(basically variable name like instance variable)
+        and ref is the bean id of the engine bean defined above-->
+
+    </bean>
+     <!-- more bean definitions for services go here -->
 
 </beans>
