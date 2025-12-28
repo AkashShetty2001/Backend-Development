@@ -44,7 +44,16 @@ public class App
 
         ApplicationContext context = new AnnotationConfigApplicationContext(Configuration.class);
       //  context.getBean("fuel", Fuel.class).useFuel();
-        context.getBean("car", Car.class).startCar();
+       // context.getBean("car", Car.class).startCar();
+
+        System.out.println("4.At this point bean is ready to use");
+        Car car = context.getBean("car", Car.class);
+        System.out.println("Car Name: "+car.getName());
+
+        //to close the context u should register shutdown hook
+        ((AnnotationConfigApplicationContext)context).registerShutdownHook();
+
+
 
     }
 }

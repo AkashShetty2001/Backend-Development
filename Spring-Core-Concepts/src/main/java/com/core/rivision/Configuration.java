@@ -13,4 +13,9 @@ public class Configuration {
    public Student getStudent(){
         return new Student();
     }
+
+    @Bean
+    public String carName(){
+        return "BMW";
+    }
 }
