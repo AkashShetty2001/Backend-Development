@@ -69,12 +69,31 @@ public class App
         used when we want to maintain separate state or configuration for each instance.
         used when we need a short life span bean like in case of session beans, request beans etc.
 
+        spring container will not manage the complete lifecycle of a prototype bean.
+        we manually need to destroy the prototype bean when it is no longer needed.
+        it happens because each time a new instance is created so the container cannot keep track of all the instances created.
+
 
         Jalebi jalebi1 = context.getBean("jalebi1", Jalebi.class);
         jalebi1.eat();
 
         Jalebi jalebi2 = context.getBean("jalebi1", Jalebi.class);
         jalebi1.eat();*/
+
+        /*
+        3.Request Scope : a new instance of the bean is created for each HTTP request. used in web applications.
+        //mainly in springBoot MVC applications.
+        for each http request a new bean instance is created and destroyed once the request is completed.means when we serve the request and send the response back to the client.
+         */
+
+        /*
+        4.Session Scope : a new instance of the bean is created for each HTTP session. used in web applications.
+        used in springBoot MVC applications.
+        session is basically a series of related requests from the same user or client.
+        it is used to maintain user-specific data across multiple requests within the same session.it is related to time duration.
+        so in container sessionInstance and also requestInstance will be created.if the user is communicating with the server.
+        temporarily storage which keeps track of user activity.
+         */
 
 
 
