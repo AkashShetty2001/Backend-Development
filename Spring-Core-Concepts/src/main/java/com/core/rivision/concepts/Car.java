@@ -1,5 +1,7 @@
 package com.core.rivision.concepts;
 
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
 import org.springframework.beans.factory.DisposableBean;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +10,7 @@ import org.springframework.stereotype.Component;
 import java.sql.SQLOutput;
 
 @Component
-public class Car implements InitializingBean , DisposableBean {
+public class Car  {
 
 
    Engine engine;// Dependency Declaration
@@ -69,8 +71,9 @@ public class Car implements InitializingBean , DisposableBean {
     */
 
 
-    @Override //this method acr=t as an init() method, called after the properties are set
+    //this method acr=t as an init() method, called after the properties are set
     //
+    @PostConstruct
     public void afterPropertiesSet(){
         System.out.println("at stage 2 depencencies are injected");
         System.out.println("car name is: "+name);
@@ -81,7 +84,7 @@ public class Car implements InitializingBean , DisposableBean {
 
     }
 
-    @Override
+   @PreDestroy
     public void destroy(){
         System.out.println("5. Destroy method called - Car bean is being destroyed...");
         System.out.println("we can have our custom cleanup logic here");
