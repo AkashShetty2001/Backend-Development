@@ -3,6 +3,7 @@ package com.core.rivision;
 import com.core.rivision.concepts.Car;
 import com.core.rivision.concepts.Engine;
 import com.core.rivision.concepts.Fuel;
+import com.core.rivision.concepts.Jalebi;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -46,9 +47,36 @@ public class App
       //  context.getBean("fuel", Fuel.class).useFuel();
        // context.getBean("car", Car.class).startCar();
 
-        System.out.println("4.At this point bean is ready to use");
-        Car car = context.getBean("car", Car.class);
-        System.out.println("Car Name: "+car.getName());
+//        System.out.println("4.At this point bean is ready to use");
+//        Car car = context.getBean("car", Car.class);
+//        System.out.println("Car Name: "+car.getName());
+
+        /*
+        Scope of Beans
+        1.Singleton : only one instance of the bean is created and shared across the application. (default scope)
+        used when we want to maintain a single state or configuration throughout the application.
+        like utility classes, configuration classes , repositories etc.
+
+        Jalebi jalebi1 = context.getBean("jalebi1", Jalebi.class);
+        jalebi1.eat();
+
+        Jalebi jalebi2 = context.getBean("jalebi1", Jalebi.class);
+        jalebi2.eat();*/
+
+
+        /*
+        2.Prototype : a new instance of the bean is created every time it is requested from the container.
+        used when we want to maintain separate state or configuration for each instance.
+        used when we need a short life span bean like in case of session beans, request beans etc.
+
+
+        Jalebi jalebi1 = context.getBean("jalebi1", Jalebi.class);
+        jalebi1.eat();
+
+        Jalebi jalebi2 = context.getBean("jalebi1", Jalebi.class);
+        jalebi1.eat();*/
+
+
 
         //to close the context u should register shutdown hook
         ((AnnotationConfigApplicationContext)context).registerShutdownHook();
