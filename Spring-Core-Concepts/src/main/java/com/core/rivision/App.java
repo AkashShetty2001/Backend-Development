@@ -95,6 +95,15 @@ public class App
         temporarily storage which keeps track of user activity.
          */
 
+        /*
+        5.Application Scope : a single instance of the bean is created for the entire web application.
+        //it's like a servlet context scope.
+        servlet context is a shared storage area that is accessible to all components of a web application running on a server.
+        it is created inside a servlet container and is used to store application-wide data that needs to be shared among multiple servlets, JSPs, and other components.
+        inside servlet container, servlet context is created as one big object and all the data is stored inside it as key-value pairs.
+        it is available in the entire lifecycle of the web application.
+         */
+
 
 
         //to close the context u should register shutdown hook
