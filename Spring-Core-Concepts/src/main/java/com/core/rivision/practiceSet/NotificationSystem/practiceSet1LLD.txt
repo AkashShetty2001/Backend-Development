@@ -1,0 +1,34 @@
+🧩 Practice Set 1 — Spring Core (LLD Style)
+Question 1: Notification System (IoC + DI basics)
+
+Problem
+Design a notification system that can send messages via:
+
+Email
+SMS
+
+Requirements
+
+Use Spring IoC to manage objects.
+Use Constructor Injection.
+No new keyword in business logic.
+
+Switching notification type should require no code change, only config change.
+
+Constraints
+
+Use Java config OR XML (your choice).
+No Spring Boot.
+No web.
+
+Classes expected
+
+NotificationService (interface)
+EmailNotificationService
+SmsNotificationService
+NotificationManager (depends on NotificationService)
+
+Concepts tested
+✔ IoC
+✔ DI
+✔ Configuration to container
