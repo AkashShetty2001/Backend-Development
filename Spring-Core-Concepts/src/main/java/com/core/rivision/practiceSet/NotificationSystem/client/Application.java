@@ -12,5 +12,9 @@ public class Application {
 
         NotificationManager notificationManager = context.getBean("notificationManager", NotificationManager.class);
         notificationManager.send("Hello u got a Message");
+
+        /*
+        So thi s is a simple Spring application that demonstrates dependency injection and component scanning.
+         */
     }
 }
