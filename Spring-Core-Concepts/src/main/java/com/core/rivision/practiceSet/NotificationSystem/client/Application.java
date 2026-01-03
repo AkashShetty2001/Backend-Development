@@ -15,6 +15,7 @@ public class Application {
 
         /*
         So thi s is a simple Spring application that demonstrates dependency injection and component scanning.
+        this application creates a notification system where a NotificationManager uses an EmailService to send notifications.
          */
     }
 }
