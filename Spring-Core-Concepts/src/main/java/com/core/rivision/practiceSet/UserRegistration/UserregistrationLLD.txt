@@ -1,0 +1,25 @@
+Question 3: User Registration (Bean Lifecycle)
+
+Problem
+Create a user registration service where:
+On bean creation → open DB connection (mock)
+On bean destruction → close DB connection (mock)
+
+Requirements
+Use bean lifecycle callbacks
+
+Print logs for:
+
+Constructor
+Post initialization
+Pre destruction
+
+Constraints
+
+Use annotations (@PostConstruct, @PreDestroy)
+Use Java config
+Gracefully close the container
+
+Concepts tested
+✔ Bean lifecycle
+✔ Init & destroy callbacks
