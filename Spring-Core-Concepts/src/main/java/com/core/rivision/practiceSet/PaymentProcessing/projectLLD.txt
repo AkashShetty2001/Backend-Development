@@ -1,0 +1,30 @@
+Problem
+Design a payment system that processes payments.
+
+Requirements
+
+PaymentProcessor should be a singleton
+
+TransactionContext should be prototype
+
+Each payment must get a new TransactionContext
+
+Prove using logs / hashcode that prototype creates new objects
+
+Constraints
+
+Use annotation-based config
+
+Inject prototype bean inside singleton properly
+
+Hint
+You’ll need:
+
+ObjectProvider OR
+
+ApplicationContext
+
+Concepts tested
+✔ Singleton scope
+✔ Prototype scope
+✔ Scope interaction
