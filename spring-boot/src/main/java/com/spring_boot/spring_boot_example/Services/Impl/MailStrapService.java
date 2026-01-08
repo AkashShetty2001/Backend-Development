@@ -1,9 +1,10 @@
-package com.spring_boot.spring_boot_example.Services;
+package com.spring_boot.spring_boot_example.Services.Impl;
 
 import org.springframework.stereotype.Service;
 
 @Service
-public class EmailService {
+public class MailStrapService implements EmailService{
+    @Override
     public void SendEmail(String sendTo,String subject,String body){
       //lets us assume we are using Mail Strap as email Service provider
         System.out.println("Using Mail Strap Service");

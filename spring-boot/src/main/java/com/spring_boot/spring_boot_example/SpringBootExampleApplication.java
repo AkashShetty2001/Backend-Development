@@ -1,7 +1,8 @@
 package com.spring_boot.spring_boot_example;
 
-import com.spring_boot.spring_boot_example.Controller.TestController;
-import com.spring_boot.spring_boot_example.Services.EmailService;
+import com.spring_boot.spring_boot_example.Services.Impl.EmailService;
+import com.spring_boot.spring_boot_example.Services.Impl.MailStrapService;
+import com.spring_boot.spring_boot_example.Services.Impl.OrderService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -19,8 +20,10 @@ public class SpringBootExampleApplication {
 		it is not applicable for class fields, method parameters, or return types.
 		 */
 		//context.getBean("testController", TestController.class).test();
-		EmailService emailService = context.getBean("emailService", EmailService.class);
+		var emailService = context.getBean(EmailService.class);
 		emailService.SendEmail("akashkd9911@gmail.com,","Test Subject","This is a test email body");
+		OrderService orderService = context.getBean("orderService", OrderService.class);
+		orderService.sendInvoice();
 
 	}
 
