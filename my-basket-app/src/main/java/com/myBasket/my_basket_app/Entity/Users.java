@@ -1,17 +1,15 @@
 package com.myBasket.my_basket_app.Entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity //it is a configuration to ORM that , this is a table in db
 //if we don't provide table name, by default class name will be table name
-@Table(name="jpa_users") //specifying table name
+@Table(name="my-basket-users") //specifying table name
 public class Users {
 
     @Id //specifying primary key
     @Column(name="user_id") //specifying column name,by Default variable name will be column name
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //auto increment strategy
     private Integer userId;
 
     private String userName;
