@@ -10,7 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class JpaAppApplication  implements org.springframework.boot.CommandLineRunner {
 
 
-	private UserService userService;
+	private final  UserService userService;
 
 	@Autowired
 	public JpaAppApplication(UserService userService) {
