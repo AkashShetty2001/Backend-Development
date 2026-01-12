@@ -69,6 +69,9 @@ public class MyBasketAppApplication implements CommandLineRunner {
 
 			productService.findByProductName("iPhone");
 			productService.findByProductIdAndProductNamecontaining(2l,"Samsung Galaxy S21");
+			productService.getAllProducts().forEach(product -> {
+				System.out.println("Product Id:"+ product.getProductId()+" Name:"+ product.getProductName());
+			});
 
 
 
