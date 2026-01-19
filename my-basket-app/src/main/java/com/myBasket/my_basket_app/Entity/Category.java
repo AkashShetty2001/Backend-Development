@@ -2,6 +2,8 @@ package com.myBasket.my_basket_app.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name="my-basket-categories")
 public class Category {
@@ -9,4 +11,8 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String imageURL;
+
+    @ManyToMany(mappedBy = "categories",
+                cascade = {CascadeType.ALL})
+    private List<Product> products;
 }

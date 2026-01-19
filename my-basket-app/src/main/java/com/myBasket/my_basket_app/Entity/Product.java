@@ -2,6 +2,9 @@ package com.myBasket.my_basket_app.Entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name="my-basket-products")
 public class Product {
@@ -16,6 +19,11 @@ public class Product {
     private boolean isStock;
     private Double price;
     private String imageURl;
+
+    @ManyToMany/* always creates a separate table to store the relationship between two entities in many to many relationship,
+     when dealing with many to many  or many to one relationship we have to use @JoinTable to specify the table name and the foreign keys
+     */
+    private List<Category> categories= new ArrayList<>();
 
     public Long getProductId() {
         return productId;
