@@ -20,6 +20,7 @@ public class Order {
     private Users users;
 
     @ManyToOne(fetch =FetchType.LAZY)/* many orders can have one shipping address*/
+    @JoinColumn(name="address_id")
     private Address shippingAddress;
 
     @OneToMany(mappedBy= "orders",
@@ -30,6 +31,14 @@ public class Order {
     @Enumerated(EnumType.STRING)
     private OrderStatus orderStatus= OrderStatus.PACKED;
 
-    @Enumerated(EnumType.STRING)
-    private PaymentStatus paymentStatus=PaymentStatus.PENDING;
+    @OneToOne(mappedBy = "order",
+              fetch = FetchType.LAZY,
+              cascade = CascadeType.ALL)
+    /*
+    so in payment table we have order as foreign key
+     */
+    /*
+    one order is associated with single payment
+     */
+    private Payment payment;
 }
