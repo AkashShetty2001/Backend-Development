@@ -60,6 +60,11 @@ public class Users {
     /* one user can have many orders */
     private List<Order> orders = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user",
+               fetch = FetchType.LAZY,
+               cascade = CascadeType.ALL)
+    private List<Cart> carts = new ArrayList<>();
+
     public Integer getUserId() {
         return userId;
     }
