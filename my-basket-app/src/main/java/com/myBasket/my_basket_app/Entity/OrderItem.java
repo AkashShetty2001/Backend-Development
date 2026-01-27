@@ -14,11 +14,13 @@ public class OrderItem {
     private Long orderItemId;
 
     @ManyToOne
+    @JoinColumn(name="order_id")/* many order items can belong to one order*/
     private List<Order> orders=new ArrayList<>();
 
 
     @ManyToOne/* many order items can belong to one product
                  like if 3 quantity of same product is ordered it will create one order item with quantity 3*/
+    @JoinColumn(name="product_id")
     private Product product;
 
     private Integer quantity;

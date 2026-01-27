@@ -33,11 +33,16 @@ public class PaymentMethodInfo {
     @Embedded
     private CASH_ON_DELIVERY cashOnDelivery;
 
-//    private DEBIT_CARD debitCard;
-//
-//    private CREDIT_CARD creditCard;
-//
-//    private NET_BANKING netBanking;
+    @Embedded
+    private DEBIT_CARD debitCard;
+
+    @Embedded
+    private CREDIT_CARD creditCard;
+
+    @Embedded
+    private NET_BANKING netBanking;
+
+
 
 
     @ManyToOne(fetch = FetchType.LAZY)

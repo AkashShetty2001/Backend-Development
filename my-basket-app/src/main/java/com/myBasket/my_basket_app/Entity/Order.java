@@ -16,6 +16,7 @@ public class Order {
     private Long orderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name="user_id")
     /*many orders can belong to one user*/
     private Users users;
 

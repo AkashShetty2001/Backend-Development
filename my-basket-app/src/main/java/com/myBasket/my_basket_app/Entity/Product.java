@@ -11,6 +11,7 @@ public class Product {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="product_id")
     private Long productId;
     private String productName;
     private String description;
@@ -23,6 +24,11 @@ public class Product {
     @ManyToMany/* always creates a separate table to store the relationship between two entities in many to many relationship,
      when dealing with many to many  or many to one relationship we have to use @JoinTable to specify the table name and the foreign keys
      */
+    @JoinTable(
+            name="my-basket-product_category",
+            joinColumns = @JoinColumn(name="product_id"),
+            inverseJoinColumns = @JoinColumn(name="category_id")
+    )
     private List<Category> categories= new ArrayList<>();
 
     public Long getProductId() {

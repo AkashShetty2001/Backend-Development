@@ -1,6 +1,8 @@
 package com.myBasket.my_basket_app.Entity;
 
 import jakarta.persistence.*;
+import org.hibernate.annotations.SQLDelete;
+import org.hibernate.annotations.SQLRestriction;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -8,7 +10,9 @@ import java.util.List;
 @Entity //it is a configuration to ORM that , this is a table in db
 //if we don't provide table name, by default class name will be table name
 @Table(name="my-basket-users") //specifying table name
-public class Users {
+@SQLDelete(sql = "UPDATE  `my-basket-users` SET is_deleted = true WHERE user_id=?")
+@SQLRestriction("is_deleted=false")
+public class Users extends BaseEntity{
 
     @Id //specifying primary key
     @Column(name="user_id") //specifying column name,by Default variable name will be column name
@@ -64,6 +68,14 @@ public class Users {
                fetch = FetchType.LAZY,
                cascade = CascadeType.ALL)
     private List<Cart> carts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "user",
+               fetch = FetchType.LAZY,
+               cascade = CascadeType.ALL)
+    /*
+        one user can have many payment method info
+     */
+    private List<PaymentMethodInfo> paymentMethodInfo;
 
     public Integer getUserId() {
         return userId;

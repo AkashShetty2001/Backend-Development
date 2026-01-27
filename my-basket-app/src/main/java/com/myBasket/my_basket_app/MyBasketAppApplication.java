@@ -11,8 +11,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
 @SpringBootApplication
+@EnableJpaAuditing
+/*
+@EnableJpaAuditing is used to enable JPA Auditing in a Spring Boot application. JPA Auditing provides a way to automatically populate certain fields in your entity classes, such as createdAt and updatedAt, with timestamps when the entity is created or modified.
+ */
 public class MyBasketAppApplication implements CommandLineRunner {
 	private final UserService userService;
 	private final ProductService productService;
@@ -34,14 +39,15 @@ public class MyBasketAppApplication implements CommandLineRunner {
 		@Override
 		public void run (String...args) throws Exception {
 			System.out.println("Application started successfully.");
-		/*
+
 		Users user1=new Users();
-		user1.setUserId(1);
 		user1.setUserName("John Doe");
-		user1.setEmail("1234@dev.in");
+		user1.setEmail("1234@devv.in");
 
 		userService.saveUser(user1);
-		*/
+
+			userService.deleteUserById(1);
+
 
 			/*var products1 = new Product();
 			//products1.setProductId(1l);

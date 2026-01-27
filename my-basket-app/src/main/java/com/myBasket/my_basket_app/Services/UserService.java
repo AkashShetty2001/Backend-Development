@@ -18,4 +18,10 @@ public class UserService {
         Users users = userRepository.save(user);
         System.out.println("User saved with ID: " + users.getUserId());
     }
+
+    public void deleteUserById(Integer userId){
+
+        userRepository.deleteById(userId);
+        System.out.println("User deleted with ID: " + userId);
+    }
 }
