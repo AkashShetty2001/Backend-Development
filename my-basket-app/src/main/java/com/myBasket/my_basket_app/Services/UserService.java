@@ -5,6 +5,8 @@ import com.myBasket.my_basket_app.Repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
 
@@ -23,5 +25,13 @@ public class UserService {
 
         userRepository.deleteById(userId);
         System.out.println("User deleted with ID: " + userId);
+    }
+
+    public Users getUserById(Integer userId){
+        return userRepository.findById(userId).orElse(null);
+    }
+
+    public List<Users> getAllUsers(){
+        return userRepository.findAll();
     }
 }
