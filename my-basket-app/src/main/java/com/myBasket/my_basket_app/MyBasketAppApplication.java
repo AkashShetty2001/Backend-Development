@@ -40,13 +40,13 @@ public class MyBasketAppApplication implements CommandLineRunner {
 		public void run (String...args) throws Exception {
 			System.out.println("Application started successfully.");
 
-		Users user1=new Users();
-		user1.setUserName("John Doe");
-		user1.setEmail("1234@devv.in");
+//		Users user1=new Users();
+//		user1.setUserName("John Doe");
+//		user1.setEmail("1234@devv.in");
 
-		userService.saveUser(user1);
+		//userService.saveUser(user1);
 
-			userService.deleteUserById(1);
+//			userService.deleteUserById(1);
 
 
 			/*var products1 = new Product();
